@@ -9,6 +9,7 @@
     <modules>
         <module>service-registry</module>
         <module>ingredient-service</module>
+        <module>ingredient-client</module>
     </modules>
 
 
