@@ -8,9 +8,9 @@
 
     <modules>
         <module>service-registry</module>
+        <module>config-server</module>
         <module>some-service</module>
         <module>some-client</module>
     </modules>
-
 
 </project>
