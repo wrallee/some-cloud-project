@@ -8,8 +8,8 @@
 
     <modules>
         <module>service-registry</module>
-        <module>ingredient-service</module>
-        <module>ingredient-client</module>
+        <module>some-service</module>
+        <module>some-client</module>
     </modules>
 
 

@@ -7,10 +7,11 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.context.annotation.Bean;
 import org.springframework.web.client.RestTemplate;
-import tacos.client.IngredientServiceClient;
+import org.springframework.web.reactive.function.client.WebClient;
+import tacos.client.SomeServiceClient;
 
 @SpringBootApplication
-public class IngredientClientApplication implements CommandLineRunner {
+public class SomeClientApplication implements CommandLineRunner {
 
 	@Bean
 	@LoadBalanced
@@ -18,17 +19,25 @@ public class IngredientClientApplication implements CommandLineRunner {
 		return new RestTemplate();
 	}
 
+	@Bean
+	@LoadBalanced
+	public WebClient.Builder webClientBuilder() {
+		return WebClient.builder();
+	}
+
 	@Autowired
-	IngredientServiceClient ingredientServiceClient;
+	SomeServiceClient someServiceClient;
 
 	@Override
 	public void run(String... args) throws Exception {
-		String result = ingredientServiceClient.getHelloMessage();
-		System.out.println(result);
+		System.out.println("RestTemplate - " + someServiceClient.getRestTemplateHelloMessage());
+		someServiceClient.getWebClientHelloMessage().subscribe(
+				s-> System.out.println("WebClient - " + s)
+		);
 	}
 
 	public static void main(String[] args) {
-		SpringApplication.run(IngredientClientApplication.class, args);
+		SpringApplication.run(SomeClientApplication.class, args);
 	}
 
 }
