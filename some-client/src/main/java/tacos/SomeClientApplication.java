@@ -10,24 +10,26 @@ import tacos.client.SomeServiceClient;
 @SpringBootApplication
 public class SomeClientApplication implements CommandLineRunner {
 
-	@Autowired
 	SomeServiceClient someServiceClient;
-
-	@Autowired
 	SomeFeignClient someFeignClient;
+
+	public SomeClientApplication(SomeServiceClient someServiceClient, SomeFeignClient someFeignClient) {
+		this.someServiceClient = someServiceClient;
+		this.someFeignClient = someFeignClient;
+	}
 
 	@Override
 	public void run(String... args) throws Exception {
 		// RestTemplate
 		System.out.println("RestTemplate - " + someServiceClient.getRestTemplateHelloMessage());
 
+		// FeignClient
+		System.out.println("FeignClient - " + someFeignClient.getHelloMessage());
+
 		// WebClient
 		someServiceClient.getWebClientHelloMessage().subscribe(
 				s-> System.out.println("WebClient - " + s)
 		);
-
-		// FeignClient
-		System.out.println("FeignClient - " + someFeignClient.getHelloMessage());
 
 	}
 
