@@ -1,36 +1,39 @@
+# high-availability-configuration
 eureka:
-  instance:
-    hostname: localhost
   client:
     service-url:
-      defaultZone: http://${eureka.instance.hostname}:${other.eureka.port}/eureka
+      defaultZone: http://${other.eureka.hostname}:${other.eureka.port}/eureka
+    fetch-registry: true
+    register-with-eureka: true
 
 ---
 spring:
-  application:
-    name: eureka-1
   config:
     activate:
       on-profile: eureka-1
+  application:
+    name: eureka-1
 
 server:
   port: 8761
 
 other:
   eureka:
+    hostname: localhost
     port: 8762
 
 ---
 spring:
-  application:
-    name: eureka-2
   config:
     activate:
       on-profile: eureka-2
+  application:
+    name: eureka-2
 
 server:
   port: 8762
 
 other:
   eureka:
+    hostname: localhost
     port: 8761

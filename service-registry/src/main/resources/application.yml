@@ -1,14 +1,10 @@
+# standalone-server-configuration
 server:
   port: 8761
 
-# single-server-configuration
 eureka:
-  instance:
-    hostname: localhost
   server:
     enable-self-preservation: false
   client:
-    service-url:
-      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
     fetch-registry: false
     register-with-eureka: false

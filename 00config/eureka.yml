@@ -1,4 +1,7 @@
-# single-server-configuration
+# standalone-server-configuration
+server:
+  port: 8761
+
 eureka:
   server:
     enable-self-preservation: false
@@ -6,12 +9,13 @@ eureka:
     fetch-registry: false
     register-with-eureka: false
 
-# high-availability-configuration
 ---
+# high-availability-configuration
 spring:
   config:
     activate:
       on-profile: ha
+
 eureka:
   client:
     service-url:

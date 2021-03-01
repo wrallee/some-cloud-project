@@ -5,6 +5,7 @@ spring:
     config:
       server:
         git:
-          uri: https://github.com/habuma/tacocloud-config
+          uri: https://github.com/wrallee/wrallee-springcloud
+          search-paths: 00config
 encrypt:
   key: s3cr3t
