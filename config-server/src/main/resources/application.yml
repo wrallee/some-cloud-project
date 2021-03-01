@@ -1,11 +1,21 @@
 server:
   port: 8888
 spring:
+  profiles:
+    active:
+      - git
+      - vault
   cloud:
     config:
       server:
         git:
           uri: https://github.com/wrallee/wrallee-springcloud
           search-paths: 00config
+          order: 2
+        vault:
+          host: localhost
+          port: 8200
+          scheme: http
+          order: 1
 encrypt:
   key: s3cr3t
