@@ -1,4 +1,4 @@
-package tacos.service;
+package tacos;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -11,7 +11,7 @@ public class SomeServiceApplication {
 
 	@RequestMapping("/")
 	public String home() {
-		return "Hello World";
+		return "Hello World\n";
 	}
 
 	public static void main(String[] args) {
