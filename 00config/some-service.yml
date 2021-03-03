@@ -2,4 +2,4 @@ server:
   port: 0
 
 greeting:
-  message: 'Hello Config-World!'
+  message: 'Hiya folks!'
