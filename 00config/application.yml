@@ -6,6 +6,13 @@ eureka:
   instance:
     hostname: localhost # set hostname of all services to 'localhost'
 
+# Spring Boot Actuator
+management:
+  endpoints:
+    web:
+      exposure:
+        include: refresh
+
 ---
 # high-availability-configuration
 spring:
