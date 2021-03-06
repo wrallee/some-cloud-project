@@ -9,8 +9,8 @@ spring:
     config:
       server:
         git:
-          uri: https://github.com/wrallee/wrallee-springcloud
-          search-paths: 00config
+          uri: https://github.com/wrallee/wrallee-springcloud-config.git
+          #search-paths: 00config
           order: 2
         vault:
           host: localhost
@@ -18,4 +18,4 @@ spring:
           scheme: http
           order: 1
 encrypt:
-  key: s3cr3t
+  key: ${ mykey }
