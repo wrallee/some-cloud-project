@@ -1,4 +1,4 @@
-package tacos.client;
+package stackstock.client;
 
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.stereotype.Component;

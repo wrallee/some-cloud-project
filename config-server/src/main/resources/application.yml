@@ -8,14 +8,17 @@ spring:
   cloud:
     config:
       server:
-        git:
-          uri: https://github.com/wrallee/wrallee-springcloud-config.git
-          #search-paths: 00config
-          order: 2
         vault:
+          order: 1
           host: localhost
           port: 8200
           scheme: http
-          order: 1
-encrypt:
-  key: ${ mykey }
+        git:
+          order: 2
+          uri: https://github.com/wrallee/wrallee-springcloud-config.git
+          #search-paths: 00config
+        overrides:
+          encrypt.key: ${encrypt.key}
+          spring.kafka.bootstrap-servers: ${spring.kafka.bootstrap-servers}
+  kafka:
+    bootstrap-servers: '{cipher}c9d66826ac464ad4281b1e2cd80f94f4423957120c5a35ce469760430cf481cfb4a9f804c307b2c0e0660b11e3c72110'

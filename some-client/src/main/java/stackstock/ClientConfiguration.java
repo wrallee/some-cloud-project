@@ -1,4 +1,4 @@
-package tacos;
+package stackstock;
 
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.cloud.openfeign.EnableFeignClients;

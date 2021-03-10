@@ -1,10 +1,10 @@
-package tacos.greet;
+package stackstock.greet;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 
-@ConfigurationProperties(prefix = "greeting")
 @Component
+@ConfigurationProperties(prefix = "greeting")
 public class GreetingProps {
     private String message;
 
