@@ -1,0 +1,11 @@
+spring:
+  profiles:
+    active: git
+  cloud:
+    config:
+      server:
+        git:
+          order: 2
+          uri: https://github.com/wrallee/wrallee-springcloud-config.git
+    bus:
+      enabled: false

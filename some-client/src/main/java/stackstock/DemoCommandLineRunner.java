@@ -5,7 +5,7 @@ import org.springframework.stereotype.Component;
 import stackstock.client.SomeFeignClient;
 import stackstock.client.SomeServiceClient;
 
-@Component
+//@Component
 public class DemoCommandLineRunner implements CommandLineRunner {
 
     SomeServiceClient someServiceClient;

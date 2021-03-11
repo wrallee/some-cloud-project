@@ -6,8 +6,11 @@ import org.springframework.boot.test.context.SpringBootTest;
 @SpringBootTest
 class SomeClientApplicationTests {
 
-	@Test
+	@Test // TODO
 	void contextLoads() {
+		// GIVEN
+		// WHEN
+		// THEN
 	}
 
 }
