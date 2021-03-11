@@ -7,7 +7,7 @@ MSA관련 기술학습을 하고 싶어 주제를 생각하다가 마땅한 주�
 ## Environment
 
 - Java 8
-- Spring Boot - 2.4.3
+- Spring Boot 2.4.3
 - Spring Cloud 2020.0.1
 - Apache Kafka 2.7.0
 - MongoDB 4.0.21
