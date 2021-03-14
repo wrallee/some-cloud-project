@@ -17,6 +17,4 @@ public class NasdaqStock {
     private String code;
     private Double price;
     private Long tradeVolume;
-    private Date getDate = new Date();
 }
-
