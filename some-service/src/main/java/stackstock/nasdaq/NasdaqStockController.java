@@ -14,7 +14,7 @@ import stackstock.nasdaq.dto.NasdaqStockResponseDto;
 @RequestMapping(path = "/nasdaq", produces = "application/json")
 public class NasdaqStockController {
 
-    private NasdaqStockService nasdaqStockService;
+    private final NasdaqStockService nasdaqStockService;
 
     @GetMapping
     public Flux<NasdaqStockResponseDto> allNasdaqStocks() {
