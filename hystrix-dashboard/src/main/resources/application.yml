@@ -1,0 +1,8 @@
+spring:
+  application:
+    name: hystrix-dashboard
+  config:
+    import: 'configserver:'
+  cloud:
+    config:
+      token: roottoken
