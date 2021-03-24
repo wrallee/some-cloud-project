@@ -1,24 +1,40 @@
 server:
   port: 8888
+
+encrypt:
+  key: '-' # Password for public portfolio
+
+kafka-cloud:
+  bootstrap-server: '{cipher}adc0715948ae56542cea63d8f600e4a918e38da60865b469db982c6831819a77fccc831c4b5dc0c58b2b610106ed7f2d6d88897067db57849fb36c1e0c7cd43eaee1457aedce29f173273db1c907e3da'
+  username: '{cipher}0cc9898f354f4427cfa56a7720bfaecec83f87e1b4eed7b8454b5ba49ba42085a4623596dd779f837f2e518b812258f7'
+  password: '{cipher}e2dfaa5d194d3c4eeb7eeaadac573d1e906dbf6945bda9923b62a0b0ce8bd796517224f6efc2d030afd4611eab0c6271a8ded1838b8486fba7e604ee9edd78147d727ffbd1a3259f186fe7754079ad2b0a85f4841c7e27666bca319b0e1bf437'
+
 spring:
   profiles:
     active:
       - git
 #      - vault
+  kafka:
+    properties: &kafka-properties
+      bootstrap.servers: ${kafka-cloud.bootstrap-server}
+      security.protocol: SASL_SSL
+      sasl.mechanism: PLAIN
+      sasl.jaas.config: >
+        org.apache.kafka.common.security.plain.PlainLoginModule
+        required username="${kafka-cloud.username}"
+        password="${kafka-cloud.password}";
   cloud:
     config:
       server:
-        vault:
-          order: 1
-          host: localhost
-          port: 8200
-          scheme: http
+#        vault:
+#          order: 1
+#          host: localhost
+#          port: 8200
+#          scheme: http
         git:
           order: 2
           uri: https://github.com/wrallee/wrallee-springcloud-config.git
-          #search-paths: 00config
+#          search-paths: 00config
         overrides:
           encrypt.key: ${encrypt.key}
-          spring.kafka.bootstrap-servers: ${spring.kafka.bootstrap-servers}
-  kafka:
-    bootstrap-servers: '{cipher}c9d66826ac464ad4281b1e2cd80f94f4423957120c5a35ce469760430cf481cfb4a9f804c307b2c0e0660b11e3c72110'
+          spring.kafka.properties: *kafka-properties
